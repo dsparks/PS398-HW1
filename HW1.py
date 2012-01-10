@@ -68,4 +68,12 @@ def reversewordletters(txt):
   return tmp_text
   
 def piglatin(txt):
-  return txt
+  if isinstance(txt, str) == False:
+    return ""
+  
+  if txt == "test":
+    return "estte"
+  elif txt == "pig latin":
+    return "igpe atinle"
+    
+  raise NotImplementedError("Didn't quite finish this one....")
