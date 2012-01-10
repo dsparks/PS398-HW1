@@ -47,8 +47,25 @@ def reversewords(txt):
 def reversewordletters(txt):
   if isinstance(txt, str) == False:
     return ""
-    
-  return txt
+  
+  tmp_text = ""
+  
+  back_pointer = 0
+  front_pointer = 0
+  stop_chars = [" ", ".", "?", "!", ",", ":", ";"]
+  for i in range(0, len(txt)):
+    if txt[i] in stop_chars:
+      front_pointer = i
+      
+      word_range = range(back_pointer, front_pointer)
+      word_range.reverse()
+      for j in word_range:
+        tmp_text += txt[j]
+      tmp_text += txt[i]
+      
+      back_pointer = i+1
+      
+  return tmp_text
   
 def piglatin(txt):
   return txt
