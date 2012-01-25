@@ -1,3 +1,5 @@
+print "it worked"
+
 def shout(txt):
   new_txt = txt.upper()
   new_txt = new_txt.replace(". ", "! ")
@@ -69,11 +71,38 @@ def reversewordletters(txt):
   
 def piglatin(txt):
   if isinstance(txt, str) == False:
-    return ""
+    return "Not a string, try again."
+  if txt.isalpha() == False:
+    return "Letters only, please!"
+ 
+  vowels = "aeiou"
+  lowertxt = txt.lower()
+  initialvalue = []
   
-  if txt == "test":
-    return "estte"
-  elif txt == "pig latin":
-    return "igpe atinle"
+  foundvowels = []
+  
+  for vv in vowels:
+    if lowertxt.find(vv) > -1:
+      foundvowels = foundvowels + [vv]
+  
+  
+  for vv in foundvowels:
+    initialvalue = initialvalue + [lowertxt.index(vv)]
     
-  raise NotImplementedError("Didn't quite finish this one....")
+  firstvowel = min(initialvalue)
+  out = txt[firstvowel:] + txt[:firstvowel] + "ay"
+  
+  if firstvowel == 0:
+    out = txt + "way"
+  
+  if txt[0:2] == "qu":
+    out = txt[2:] + "quay"
+  
+  if txt[0:2] == "Qu":
+    out = txt[2:] + "Quay"
+  
+  return out
+
+
+  
+print "End of script"
