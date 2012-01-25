@@ -106,3 +106,4 @@ def piglatin(txt):
 
   
 print "End of script"
+print "This is just a minor change to let me know if I'm commiting right"
